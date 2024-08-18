@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr-code-generator</title>
+    <link rel="stylesheet" href="qr.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Qr Code Generator</h1>
+
+        <input type="text" class="qr-txt" placeholder="Enter Text or URL">
+        <div class="qr">
+            <img src="images/scan.png" alt="" id="img">
+        </div>
+        <div class="btn-box">
+            <button class="qr-generate btm" onclick="generateQr()">Generate QR</button>
+            <button class="Reset btm" onclick="reset()">Reset</button>
+        </div>
+
+        <button class="download btm">Download</button>
+    </div>
+    <script>
+        let txt = document.querySelector(".qr-txt");
+        let url = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=";
+        let img = document.querySelector("#img");
+        let download = document.querySelector(".download");
+        const generateQr = () => {
+            if (txt.value !== "") {
+                url_address = url + txt.value;
+                img.src = url_address;
+
+                download.style.display="block";
+            }
+        };
+        const reset=()=>{
+            img.src="images/scan.png"
+            txt.value="";
+            download.style.display="none";
+        };
+
+        const downloadBtn=()=>{
+            download.addEventListener("click",async()=>{
+                const response=await fetch(img.src);
+                const blob =await response.blob();
+                const downloadLink=document.createElement("a");
+                downloadLink.href=URL.createObjectURL(blob);
+                downloadLink.download="qrcode.jpg";
+                downloadLink.click();
+            });
+        };
+        downloadBtn();
+    </script>
+</body>
+
+</html>

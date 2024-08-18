@@ -1,0 +1,107 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background: url(images/Bagarbilla.jpg);
+    color: white;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.container{
+    margin-right: 10vw;
+    width: 380px;
+    backdrop-filter: blur(5px);
+    border: 2px solid rgb(187, 185, 185);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.container h1{
+    font-size: 2rem;
+    margin: 15px auto;
+}
+.qr-txt{
+    width: 75%;
+    border: 1px solid transparent;
+    outline: none;
+    font-size: 1rem;
+    padding: 0.4rem;
+    border-radius: 4px;
+    background-color: rgb(210, 255, 220);
+}
+.qr-txt:hover{
+    border: 1px solid rgb(96, 235, 99);
+}
+.qr{
+    width: 180px;
+    margin: 2.5rem 0;
+}
+.qr img{
+    width: 100%;
+}
+.btn-box{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+}
+.btm{
+    width: 120px;
+    font-size: 1rem;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 2px solid white;
+    background: transparent;
+    color: rgb(50, 207, 139);
+    outline: none;
+    cursor: pointer;
+}
+.btm:hover{
+    color: rgb(0, 170, 91);
+}
+.download{
+    text-align: center;
+    text-decoration: none;
+    margin: 10px 0;
+    display: none;
+}
+
+
+@media only screen and (max-width:470px) {
+    body{
+        justify-content: center;
+    }
+    .container{
+        margin-right: 0;
+        width: 90vw;
+    }
+    .container h1{
+        font-size: 7vw;
+        margin: 15px auto;
+    }
+    .qr-txt{
+        width: 80%;
+    }
+    .qr{
+        width: 40vw;
+        margin: 1rem 0;
+        border-radius: 15px;
+    }
+    .btn-box{
+        width: 85%;
+    }
+    .btm{
+        width: 35vw;
+        font-size: 4.5vw;
+    }
+}
